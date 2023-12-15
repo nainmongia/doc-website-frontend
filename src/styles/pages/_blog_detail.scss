@@ -1,0 +1,33 @@
+.post {
+  margin-bottom: remCal(100);
+  &__cover {
+    max-height: emCal(16, 600);
+    overflow: hidden;
+    &:hover {
+      img {
+        transform: scale(1.1) rotate(1deg);
+      }
+    }
+    img {
+      @include imgCenter;
+      transition: 5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    }
+  }
+  &__body {
+    .post__sidebar {
+      padding-top: emCal(16, 100);
+      @include mq(md) {
+        margin-bottom: emCal(14, 70);
+      }
+    }
+    .post__content {
+      background-color: #fff;
+      margin-top: emCal(16, -50);
+      padding: emCal(16, 50) emCal(16, 70) 0;
+      @include mq(md) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
