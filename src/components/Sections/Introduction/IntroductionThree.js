@@ -53,7 +53,7 @@ export default function IntroductionThree() {
           </div>
           <div className="col-12 col-md-6">
             <div className="introduction-three__content">
-              <h5>About Eliah</h5>
+              <h5>About Dochomoeo</h5>
               <h3>
                 <span>Natural </span>
                 skin care

@@ -117,7 +117,7 @@ h1 em {
     //width: max(20%, 20rem);
     // width: max-content;
     width: auto;
-    padding: 18px 18px;
+    padding: 18px 18px 48px 18px;
     background-color: var(--white);
     text-align: center;
     align-content: center;
@@ -139,6 +139,7 @@ h1 em {
       width: 120px;
      // height: 20%;
      padding: 0%;
+     height: 320px!important;
     }
 
   }
@@ -146,7 +147,7 @@ h1 em {
   /** Image Block **/
   .img-block img {
     display: block;
-    height: 250px;
+    height: 220px;
     // width: auto;
     border-radius: 10px;
     margin-top: 1.2rem;
@@ -170,6 +171,8 @@ h1 em {
     // z-index: 101;
     width: max-content;
     align-self: center;
+    top: 3rem;
+
   }
   h4 {
     margin-top: 10px;
@@ -195,20 +198,21 @@ h1 em {
     width: 170px;
     // height: 50px;
     position: absolute;
-    padding: 30px 10px 30px;
+    padding-top: 10px;
     // z-index: 100;
     top: 57%;
     left: 29px;
    // font-weight: bold;
     //background-color: #3498db; /* Blue background */
-    background-color: #04888d;
+    // background-color: #04888d;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 10px;
     gap: 10px;
     align-items: center;
-    color: white;
+    color: black;
+    margin-top: 10px;
 
     @media screen and (max-device-width: 992px) {
       top: 57%;
@@ -223,6 +227,8 @@ h1 em {
 
     .text1{
       font-size: 13px;
+      margin-top: 20px;
+      font-weight:600;
       @include mq(sm){
        font-size: 11px;
       }
@@ -230,7 +236,8 @@ h1 em {
 
     .text2 {
       font-size: 11px;
-      font-weight: 400;
+      font-weight: 500;
+      line-height: 1.5;
       @include mq(sm){
         font-size: 10px;
       }
@@ -244,6 +251,7 @@ h1 em {
     box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
     box-sizing: border-box;
     margin-top: 10px;
+    margin-bottom: 5px;
     color: #ffffff;
     cursor: pointer;
     display: inline-block;
@@ -282,9 +290,12 @@ h1 em {
 
 .doctorsection .img-block img{
   margin-top: 0;
+  margin-bottom: 7px;
+  height: 250px;
 }
 .info-block{
   padding-bottom: 8px !important;
+  
 }
 .doctorsection__wrapper{    margin-bottom: 3.75rem;
   padding: 5px;
@@ -299,6 +310,7 @@ h1 em {
 
 // custom css anjali
 // doctor booking form
+.doctor_booking_form{height: 500px; overflow-x: scroll;}
 .doctor_booking_form{padding: 40px !important;}
 .doctor_booking_form .doctor_booking_text_box label{font-size: 15px;line-height: 1.8;}
 .doctor_booking_form .doctor_booking_text_box input{padding: 15px;margin-bottom: 10px;border: 1px solid #61616133 !important;}

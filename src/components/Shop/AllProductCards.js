@@ -18,7 +18,7 @@ export default function AllProductsCard(props) {
                 return (
                   <div
                     key={index}
-                    className="col-6 col-sm-6 col-md-4 col-lg-3"
+                    className="col-6 col-sm-6 col-md-4 col-lg-3" style={{padding:"15px 2px"}}
                   >
                     <Product data={item} />
                   </div>

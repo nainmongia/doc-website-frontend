@@ -85,12 +85,14 @@ export default function DoctorSection({ data }) {
                     <p className="text2">{item.Specialization}</p>
                   </div>
                   <article className="info-block">
+                   
                     <span className="docinfo">
                       {item.experience} + years of experience <br />
                       {item?.languages?.slice(0, t + 2)} { (len - leg.length) === 0 ? "" : <>
                        + {(len - leg.length)}
                       </> }
                     </span>
+                   
                     <br />
                     {/* <Link
                       href={`${process.env.PUBLIC_URL}/doctors/[slug]`}

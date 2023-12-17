@@ -189,10 +189,11 @@ export const DoctorForm = ({ show, setShow, data }) => {
         <Loading />
       ) : (
         <Modal show={show}>
+          <div>
           <Form
             ref={ref}
             className="doctor_booking_form"
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit} 
           >
             <h3
               style={{
@@ -204,7 +205,7 @@ export const DoctorForm = ({ show, setShow, data }) => {
             </h3>
             <CloseButton onClick={() => setShow(false)}> x </CloseButton>
 
-            <FormData className="doctor_booking_text_box">
+            <FormData className="doctor_booking_text_box" >
               <div className="row two_inputs">
                 <div className="col-12  col-md-6">
                   <Label htmlFor="name">Your Name:</Label>
@@ -315,6 +316,7 @@ export const DoctorForm = ({ show, setShow, data }) => {
               Submit
             </Button>
           </Form>
+          </div>
         </Modal>
       )}
     </>

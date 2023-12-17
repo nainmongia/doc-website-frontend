@@ -11,7 +11,7 @@ export default function LayoutOne(props) {
   return (
     <>
       <Head>
-        <title>{"Dochomoeo | Your All in One Medical Solution"}</title>
+        <title>{props?.title || "Dochomoeo | Your All in One Medical Solution"}</title>
         <link rel="shortcut icon" href="/favicon.ico" />
         {/* <title>{props.title || "Dochomoeo | Your All in One Medical Solution"}</title> */}
       </Head>

@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from 'next/head';
 import { useEffect, useState } from "react";
 import products from "../../../data/products.json";
 import { getProductBySlug } from "../../../common/productSelect";
@@ -102,24 +103,40 @@ export default function () {
     // fetchrec();
   }, [slug]);
   // let foundProduct = getProductBySlug(products, slug);
-  console.log(foundProduct);
+  console.log("foundProduct=>>>>",foundProduct);
   const onReviewSubmit = (data) => {
     console.log(data);
   };
   return (
     <>
+      <Head>
+        <title>
+          {foundProduct?.name  }
+        </title>
+        <meta
+          name="description"
+          content= {foundProduct?.name }
+          key="desc"
+        />
+      </Head>
       {loading ? (
         <>
           {" "}
           <Loading />{" "}
         </>
       ) : (
-        <LayoutFour title={foundProduct.name}>
+        <LayoutFour title={foundProduct?.name}>
+
           <Breadcrumb title="Product Detail">
-            <BreadcrumbItem name="Home" />
-            <BreadcrumbItem name="Shop" />
-            <BreadcrumbItem name={foundProduct.name} current />
+            <div style={{lineHeight:'10px'}}>
+              <BreadcrumbItem name="Home" />
+              <BreadcrumbItem name="Shop" />
+              <div style={{lineHeight:"20px",paddingTop:'15px'}}>
+              <BreadcrumbItem name={foundProduct.name} current />
+              </div>
+            </div>
           </Breadcrumb>
+
           <ProductDetail
             original={originalData}
             data={foundProduct}
@@ -127,8 +144,9 @@ export default function () {
           />
           <ProductSlideTwo data={similar} />
           {/* <InstagramTwo /> */}
-        </LayoutFour>
-      )}
+        </LayoutFour >
+      )
+      }
     </>
   );
 }

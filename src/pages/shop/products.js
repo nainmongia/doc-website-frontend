@@ -8,7 +8,7 @@ import { baseUrl } from "../../../config";
 import axios from "axios";
 import Loading from "../../components/Other/Loading";
 import { useMediaQuery } from "react-responsive";
-import { MobileSidebar } from "../../components/Shop/MobileSidebar";
+import MobileSidebar from "../../components/Shop/MobileSidebar";
 
 export default function () {
   const pageLimit = 25;
@@ -114,14 +114,31 @@ export default function () {
       {isTabletOrMobile ? (
         <div>
           <MobileSidebar
+            brandsData={brandsData}
             categoriesData={categoriesData}
             filterData={FilterData}
             fetchData={PageData}
             filter={filter}
+            price={price}
             setCurrentPage={setCurrentPage}
             setFilter={setFilter}
             setPrice={setPrice}
+            setC={setC}
+            c={c}
           />
+          {/* <ShopSidebar
+                    brandsData={brandsData}
+                    categoriesData={categoriesData}
+                    filterData={FilterData}
+                    fetchData={PageData}
+                    filter={filter}
+                    price={price}
+                    setCurrentPage={setCurrentPage}
+                    setFilter={setFilter}
+                    setPrice={setPrice}
+                    setC={setC}
+                    c={c}
+                  /> */}
           {loading ? (
             <Loading />
           ) : (
@@ -215,69 +232,69 @@ export default function () {
                           </li>
                           {currentPage === Math.round(total / 12)
                             ? [
-                                currentPage - 5,
-                                currentPage - 4,
-                                currentPage - 3,
-                                currentPage - 2,
-                                currentPage - 1,
-                                currentPage,
-                              ].map((i) => {
-                                if (currentPage === i) {
-                                  return (
-                                    <li class="page__numbers active">
-                                      {currentPage}
-                                    </li>
-                                  );
-                                } else {
-                                  return (
-                                    <li
-                                      class="page__numbers"
-                                      onClick={() => {
-                                        if (filter !== "all") {
-                                          setCurrentPage(i);
-                                          FilterData(i, filter);
-                                        } else {
-                                          setCurrentPage(i);
-                                          PageData(i);
-                                        }
-                                      }}
-                                    >
-                                      {i}
-                                    </li>
-                                  );
-                                }
-                              })
+                              currentPage - 5,
+                              currentPage - 4,
+                              currentPage - 3,
+                              currentPage - 2,
+                              currentPage - 1,
+                              currentPage,
+                            ].map((i) => {
+                              if (currentPage === i) {
+                                return (
+                                  <li class="page__numbers active">
+                                    {currentPage}
+                                  </li>
+                                );
+                              } else {
+                                return (
+                                  <li
+                                    class="page__numbers"
+                                    onClick={() => {
+                                      if (filter !== "all") {
+                                        setCurrentPage(i);
+                                        FilterData(i, filter);
+                                      } else {
+                                        setCurrentPage(i);
+                                        PageData(i);
+                                      }
+                                    }}
+                                  >
+                                    {i}
+                                  </li>
+                                );
+                              }
+                            })
                             : [
-                                currentPage + 0,
-                                currentPage + 1,
-                                currentPage + 2,
-                                currentPage + 3,
-                                currentPage + 4,
-                                currentPage + 5,
-                              ].map((i) => {
-                                if (currentPage === i) {
-                                  return (
-                                    <li class="page__numbers active">{i}</li>
-                                  );
-                                } else {
-                                  return (
-                                    <li
-                                      class="page__numbers"
-                                      onClick={() => {
-                                        if (filter !== "all") {
-                                          setCurrentPage(i);
-                                          FilterData(i, filter);
-                                        } else {
-                                          setCurrentPage(i);
-                                          PageData(i);
-                                        }
-                                      }}
-                                    >
-                                      {i}
-                                    </li>
-                                  );
-                                }
-                              })}
+                              currentPage + 0,
+                              currentPage + 1,
+                              currentPage + 2,
+                              currentPage + 3,
+                              currentPage + 4,
+                              currentPage + 5,
+                            ].map((i) => {
+                              if (currentPage === i) {
+                                return (
+                                  <li class="page__numbers active">{i}</li>
+                                );
+                              } else {
+                                return (
+                                  <li
+                                    class="page__numbers"
+                                    onClick={() => {
+                                      if (filter !== "all") {
+                                        setCurrentPage(i);
+                                        FilterData(i, filter);
+                                      } else {
+                                        setCurrentPage(i);
+                                        PageData(i);
+                                      }
+                                    }}
+                                  >
+                                    {i}
+                                  </li>
+                                );
+                              }
+                            })}
                           {currentPage < total / 12 - 3 && (
                             <li class="page__dots">...</li>
                           )}
@@ -460,81 +477,82 @@ export default function () {
                                 </li>
                                 {currentPage === Math.round(total / 12)
                                   ? [
-                                      currentPage - 5,
-                                      currentPage - 4,
-                                      currentPage - 3,
-                                      currentPage - 2,
-                                      currentPage - 1,
-                                      currentPage,
-                                    ].map((i) => {
-                                      if (currentPage === i) {
-                                        return (
-                                          <li class="page__numbers active">
-                                            {currentPage}
-                                          </li>
-                                        );
-                                      } else {
-                                        return (
-                                          <li
-                                            class="page__numbers"
-                                            onClick={() => {
-                                              if (filter !== "all") {
-                                                setCurrentPage(i);
-                                                FilterData(i, filter);
-                                              } else {
-                                                setCurrentPage(i);
-                                                PageData(i);
-                                              }
-                                            }}
-                                          >
-                                            {i}
-                                          </li>
-                                        );
-                                      }
-                                    })
+                                    currentPage - 5,
+                                    currentPage - 4,
+                                    currentPage - 3,
+                                    currentPage - 2,
+                                    currentPage - 1,
+                                    currentPage,
+                                  ].map((i) => {
+                                    if (currentPage === i) {
+                                      return (
+                                        <li class="page__numbers active">
+                                          {currentPage}
+                                        </li>
+                                      );
+                                    } else {
+                                      return (
+                                        <li
+                                          class="page__numbers"
+                                          onClick={() => {
+                                            if (filter !== "all") {
+                                              setCurrentPage(i);
+                                              FilterData(i, filter);
+                                            } else {
+                                              setCurrentPage(i);
+                                              PageData(i);
+                                            }
+                                          }}
+                                        >
+                                          {i}
+                                        </li>
+                                      );
+                                    }
+                                  })
                                   : [
-                                      currentPage + 0,
-                                      currentPage + 1,
-                                      currentPage + 2,
-                                      currentPage + 3,
-                                      currentPage + 4,
-                                      currentPage + 5,
-                                    ].map((i) => {
-                                      if (currentPage === i) {
-                                        return (
-                                          <li class="page__numbers active">
-                                            {i}
-                                          </li>
-                                        );
-                                      } else {
-                                        return (
-                                          <li
-                                            class="page__numbers"
-                                            onClick={() => {
-                                              if (filter !== "all") {
-                                                setCurrentPage(i);
-                                                FilterData(i, filter);
-                                              } else {
-                                                setCurrentPage(i);
-                                                PageData(i);
-                                              }
-                                            }}
-                                          >
-                                            {i}
-                                          </li>
-                                        );
-                                      }
-                                    })}
+                                    currentPage + 0,
+                                    currentPage + 1,
+                                    currentPage + 2,
+                                    currentPage + 3,
+                                    currentPage + 4,
+                                    currentPage + 5,
+                                  ].map((i) => {
+                                    if (currentPage === i) {
+                                      return (
+                                        <li class="page__numbers active">
+                                          {i}
+                                        </li>
+                                      );
+                                    } else {
+                                      return (
+                                        <li
+                                          class="page__numbers"
+                                          onClick={() => {
+                                            if (filter !== "all") {
+                                              setCurrentPage(i);
+                                              FilterData(i, filter);
+                                            } else {
+                                              setCurrentPage(i);
+                                              PageData(i);
+                                            }
+                                          }}
+                                        >
+                                          {i}
+                                        </li>
+                                      );
+                                    }
+                                  })}
                                 {currentPage < total / 12 - 3 && (
                                   <li class="page__dots">...</li>
                                 )}
                                 {currentPage === Math.round(total / 12) ? (
-                                  <li class="page__numbers active">
+                                  <li class="page__numbers active" >
                                     {Math.round(productData.length / 12)}
                                   </li>
                                 ) : (
                                   <li
-                                    class="page__numbers"
+                                    class=" pagebox"
+                                
                                     onClick={() => {
                                       if (filter !== "all") {
                                         setCurrentPage(Math.round(total / 12));

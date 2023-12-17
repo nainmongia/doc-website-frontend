@@ -21,7 +21,7 @@ export default function InstagramOne({ singleRow }) {
       <a href="https://www.instagram.com/" className="instagram-one__content">
         <i className="fab fa-instagram"></i>
         <h5>Follow us on instagram</h5>
-        <p>@Teliahshop</p>
+        <p>@TDochomoeoshop</p>
       </a>
     </div>
   );
