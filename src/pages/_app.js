@@ -40,7 +40,8 @@ const App = ({ Component, pageProps, reduxStore }) => {
           }}
           src={process.env.PUBLIC_URL + "/assets/chat.png"}
           onClick={()=> {
-            window.open('https://api.whatsapp.com/', '_blank')
+            window.open('https://wa.me/6386796136', '_blank')
+            // window.open('https://api.whatsapp.com/', '_blank')
           }}
         />
       </PersistGate>

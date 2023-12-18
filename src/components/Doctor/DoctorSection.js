@@ -67,7 +67,7 @@ export default function DoctorSection({ data }) {
                 t+=item.length;
               } )
               return (
-                <main className="qr-container">
+                <main className="qr-container pb-3">
                   <div className="img-block">
                     <div>
                       <img
@@ -80,18 +80,26 @@ export default function DoctorSection({ data }) {
                       />
                     </div>
                   </div>
-                  <div className="rectangle">
-                    <p className="text1">{item.name}</p>
+                  <div className="rectangle mt-0">
+                    <p className="text1 mt-0">{item.name}</p>
                     <p className="text2">{item.Specialization}</p>
                   </div>
-                  <article className="info-block">
+                  <article className="info-block pt-1">
                    
                     <span className="docinfo">
                       {item.experience} + years of experience <br />
+                      {/* {item?.languages?.slice(0, t + 2)} { (len - leg.length) === 0 ? "" : <>
+                       + {(len - leg.length)}
+                      </> } */}
+                    </span>
+                    <div className="docinfo">
+                      {/* {item.experience} + years of experience <br /> */}
+                      <span>
                       {item?.languages?.slice(0, t + 2)} { (len - leg.length) === 0 ? "" : <>
                        + {(len - leg.length)}
                       </> }
-                    </span>
+                      </span>
+                    </div>
                    
                     <br />
                     {/* <Link
