@@ -116,7 +116,7 @@
     left: -14px;
   }
 
-  .doctorsection h4{
+  .doctorsection h4 {
     font-size: 11px;
   }
 }
@@ -230,43 +230,103 @@ h1 em {
 }
 
 // custom css anjali
-.doctorsection .two h2{font-family: Raleway,sans-serif;font-size: 40px;position: relative;}
-.doctorsection .two span{
-  font-size: 13px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    line-height: 3em;
-    padding-left: 0.25em;
-    color: rgba(0,0,0,.4);
-    padding-bottom: 10px;
-    font-family: Raleway,sans-serif;
-    display: block;
+.doctorsection .two h2 {
+  font-family: Raleway, sans-serif;
+  font-size: 40px;
+  position: relative;
 }
-.doctorsection .two h2:before{position: absolute;
+.doctorsection .two span {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 3em;
+  padding-left: 0.25em;
+  color: rgba(0, 0, 0, 0.4);
+  padding-bottom: 10px;
+  font-family: Raleway, sans-serif;
+  display: block;
+}
+.doctorsection .two h2:before {
+  position: absolute;
   left: 0;
   bottom: 10px;
   width: 60px;
   height: 3px;
   content: "";
-  background-color: #c50000;}
-@media only screen and (max-width: 425px){
-  
-  .doctorsection .two span{font-size: 10px;letter-spacing: 3px;line-height: 20px;padding: 5px 0px;}
-  .doctorsection .two h2:before{bottom: -5px;}
-  .doctorsection .qr-container{width: 142px;}
-.doctorsection .two h2{font-family: Raleway,sans-serif;font-size: 25px;position: relative;}
-  .doctorsection .img-block img{width: 100%;border-radius: 0;height: auto;}
-  .doctorsection .qr-container{height: 285px;margin: 4px;overflow: hidden;}
-  .doctorsection__wrapper{justify-content: space-around;margin-bottom: 40px;}
-  .doctorsection .rectangle{left: 50%;top: 58%;transform: translate(-50%,-50%);width: 85%;}
-  .info-block{top: 0;}
-  .doctorsection h4{margin-top: 20px;text-align: center;font-size: 10px;}
-  .doctorsection .info-block{width: auto;text-align: center;padding: 15px 0px;}
-  .info-block{left: 0;}
-  .doctorsection .rectangle{padding: 26px 5px;}
-  .doctorsection .rectangle .text1{font-size: 10px;}
-  .doctorsection .button-24{font-size: 10px;}
-  .doctorsection .rectangle .text2{font-size: 8px;}
-
+  background-color: #c50000;
+}
+@media only screen and (max-width: 425px) {
+  .doctorsection .two span {
+    font-size: 10px;
+    letter-spacing: 3px;
+    line-height: 20px;
+    padding: 5px 0px;
+  }
+  .doctorsection .two h2:before {
+    bottom: -5px;
+  }
+  .doctorsection .qr-container {
+    width: 142px;
+  }
+  .doctorsection .two h2 {
+    font-family: Raleway, sans-serif;
+    font-size: 25px;
+    position: relative;
+  }
+  .doctorsection .img-block img {
+    width: 100%;
+    border-radius: 0;
+    height: auto;
+  }
+  .doctorsection .qr-container {
+    height: 285px;
+    margin: 4px;
+    overflow: hidden;
+    @media screen and (max-device-width: 550px) {
+      padding: 20px 20px;
+    }
+  }
+  .doctorsection__wrapper {
+    justify-content: space-around;
+    margin-bottom: 40px;
+  }
+  .doctorsection .rectangle {
+    left: 0%;
+    top: 58%;
+    transform: translate(0%, 0%);
+    width: 100%;
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+  }
+  .info-block {
+    top: 0;
+  }
+  .doctorsection h4 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 10px;
+  }
+  .doctorsection .info-block {
+    width: auto;
+    text-align: center;
+    padding: 15px 0px;
+  }
+  .info-block {
+    left: 0;
+  }
+  .doctorsection .rectangle {
+    padding: 10px 10px;
+  }
+  .doctorsection .rectangle .text1 {
+    font-size: 10px;
+  }
+  .doctorsection .button-24 {
+    font-size: 10px;
+  }
+  .doctorsection .rectangle .text2 {
+    font-size: 8px;
+  }
 }
