@@ -13,7 +13,7 @@ import testimonialOneData from "../data/testimonial/data.json";
 import TeamOne from "../components/Sections/Team/TeamOne";
 import teamOneData from "../data/team/teamOne.json";
 import CTAOne from "../components/Sections/CallToAction/CTAOne";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { baseUrl } from "../../config";
 import axios from "axios";
 import ShopProducts from "../components/Shop/ShopProducts";
@@ -47,6 +47,12 @@ export default function homepage1() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    // window.scrollTo();
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+
+  }, [data]);
 
   const fetchBrands = async () => {
     try {
