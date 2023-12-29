@@ -6,91 +6,79 @@ import { convertToSlug } from "../../common/utils";
 import SocialIcons from "../Other/SocialIcons";
 import Button from "../Control/Button";
 import ImageLightbox from "../Control/ImageLightbox";
+import ReactHtmlParser from "react-html-parser";
 
 export default function PostContent({ data, children }) {
-  const { register, handleSubmit, errors } = useForm();
-  const onSearchSubmit = (data) => console.log(data);
+  // const { register, handleSubmit, errors } = useForm();
+  // const onSearchSubmit = (data) => console.log(data);
+  const convertDate = (dateData)=>{
+    let newDate=  new Date(dateData)
+    return newDate?.getDate()
+  }
+  const convertMonth = (dateData)=>{
+    let newDate=  new Date(dateData)
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+
+    return monthNames[newDate?.getMonth()]
+  }
+
+
   return (
     <div className="post-content">
       <div className="post-content__header">
         <div className="post-content__header__date">
-          <h5>05</h5>
-          <p>Feb</p>
+        <h5>{convertDate(data?.createdAt) }</h5>
+            <p> {convertMonth(data?.createdAt)}</p>
         </div>
         <div className="post-content__header__content">
           <div className="post_content__info">
             <p>
-              by <span>{data.author}</span>
+            by <span>{data?.blog_author}</span>
             </p>
-            <Link
-              href={process.env.PUBLIC_URL + "#"}
-              as={process.env.PUBLIC_URL + "#"}
-            >
-              <a>{data.category}</a>
-            </Link>
+           
           </div>
-          <h2>{data.title}</h2>
+          <h1 style={{color: '#111',
+    fontSize: '1.875em',
+    fontWeight: 500,
+    lineHeight: '1.3em'}} >{data.blog_title}</h1>
         </div>
       </div>
       <div className="post-content__body">
-        <p className="post-paragraph">
-          Like every year, this new year also brought in a lot of resolutions
-          that we promised to keep. One such common resolution was pampering our
-          skin and while there is a huge possibility that we have done
-          absolutely nothing towards it. But there is something about grandma’s
-          tips that create a sense of credibility one could always fall back
-          upon.
+        {/* <p className="post-paragraph"> */}
+          
+         {/* {data?.about_blog} */}
+         {ReactHtmlParser(data?.about_blog)}
+        {/* </p> */}
+        {data?.blog_sub_headings?.map((value,index)=>(
+         <div key={index} >
+            <div className="post-paragraph">
+              
+           <p className="blog_sub_heading" >{value?.sub_head_title} </p>
+         </div>
+          <p className="post-paragraph">
+          {/* {value?.sub_head_description} */}
+          {ReactHtmlParser(value?.sub_head_description)}
         </p>
-        <p className="post-paragraph">
-          <span>Wash your face twice – </span>
-          Let’s start with the basics. To have a healthy and clear skin you must
-          wash whatever has gotten accumulated on the surface of your skin.
-        </p>
-        <p className="post-paragraph">
+         </div>
+        ))}
+       
+        {/* <p className="post-paragraph">
           <span>Eat healthy – </span>
           ‘you are what you eat’. It’s as simple as it sounds. All that caffeine
           that you think your body yearns to keep you awake is eventually going
           to take a bad toll on your skin. In fact, whatever you eat has a
           direct impact on your skin.
-        </p>
-        <ImageLightbox
+        </p> */}
+        {/* <ImageLightbox
           className="post-image"
           alt="post image"
           imgSrc={"/assets/images/blog/post_img.png"}
-        />
-        <p className="post-paragraph">
-          <span>Drink loads of water - </span>I cannot emphasize this point
-          enough. One thing that you cannot skip upon is drinking 3 litres of
-          water each day regardless of the weather. Water is a boon sent from
-          heaven just for your skin. Drinking water can help you flush out
-          toxins which clear all the pimples and bumps from the surface of your
-          skin.
-        </p>
-        <p className="post-paragraph">
-          <span>Have a skin regime – </span>
-          Even if it just includes washing your face and moisturizing it have a
-          skin regime. Having a skin regime is similar to having a balanced diet
-          for your skin.
-        </p>
-        <div className="post-quote">
-          <h5>
-            {" "}
-            Avoid having an erratic sleep pattern and do not let your work
-            create a lot of stress for you either.
-          </h5>
-          <div className="post-quote__author">
-            <i className="fas fa-quote-left"></i>
-            <p>Trevor Lawson</p>
-          </div>
-        </div>
-        <p className="post-paragraph">
-          <span>Sleeping beauty – </span>
-          The consequences of your bad lifestyle habits are quite evident on
-          your skin if you don’t improve. Having a sound sleep of 8 hours is the
-          least one could do to have a healthy and glowing skin.
-        </p>
+        /> */}
       </div>
-      <div className="post-content__footer">
+
+      {/* <div className="post-content__footer">
         <div className="post-content__footer__tags">
           <span>Tag:</span>
           {data.tags &&
@@ -102,8 +90,9 @@ export default function PostContent({ data, children }) {
           <span>Share:</span>
           <SocialIcons colored />
         </div>
-      </div>
-      <div className="post-content__actions">
+      </div> */}
+
+      {/* <div className="post-content__actions">
         <div className="post-content__actions__change">
           <Link href="#">
             <a className="change-post-btn -prev">
@@ -181,7 +170,8 @@ export default function PostContent({ data, children }) {
             <button className="btn -red">Submit comment</button>
           </form>
         </div>
-      </div>
+      </div> */}
+
     </div>
   );
 }

@@ -27,7 +27,7 @@
             color: setShadeColor(dark);
           }
           &:after {
-            content: "/";
+            // content: "/";
             margin: 0 emCal(16, 10);
           }
         }
@@ -49,10 +49,15 @@
     .post-paragraph {
       @include typo($lh: emCal(16, 29), $color: #444);
       margin-bottom: emCal(29, 40);
+      margin-top: 16px;
       span {
-        font-weight: 600;
+        // font-weight: 600;
         color: setShadeColor(dark);
       }
+    }
+    .blog_sub_heading{
+      font-weight: 600;
+      color: setShadeColor(dark);
     }
     .post-quote {
       border: 1px solid rgba($color: setColor(red), $alpha: 0.5);
@@ -144,4 +149,9 @@
       }
     }
   }
+}
+
+
+.post-content__body p{
+  line-height: 25px;
 }

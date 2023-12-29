@@ -103,13 +103,13 @@ export default function FooterOne() {
                   Methods.
                 </p>
                 <div className="payment-methods">
-                  <img
+                  {/* <img
                     src={
                       process.env.PUBLIC_URL +
                       "/assets/images/footer/payment.png"
                     }
                     alt="Payment methods"
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
