@@ -11,7 +11,7 @@
   ],
   "creditLinks": [
     { "name": "Return & Cancellation", "to": "/ReturnCancellation" },
-    { "name": "Terms & Condition", "to": "/form.pdf" },
-    { "name": "Site map", "to": "/contact" }
+    { "name": "Terms & Condition", "to": "/form.pdf" }
+  
   ]
 }

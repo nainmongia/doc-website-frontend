@@ -26,7 +26,9 @@ import { toast } from "react-toastify";
 import { logoutUser } from "../redux/reducers/userReducer";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-
+import PostCardTwo from "../components/Post/PostCardTwo";
+import SectionTitleOne from "../components/Sections/SectionTitle/SectionTitleOne";
+import Link from "next/link";
 export default function homepage1() {
   console.log(sliderData);
 
@@ -37,7 +39,7 @@ export default function homepage1() {
   const [doctorsData, setDoctorsData] = useState([]);
   const [categories, setCategories] = useState([]);
   const [cat, setCat] = useState([]);
-
+  const [blogsDataApi, setBlogsDataApi] = useState([]);
   const fetchDoctors = async () => {
     try {
       const url = `${baseUrl}/api/get/all/doctors/`;
@@ -53,7 +55,7 @@ export default function homepage1() {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
 
   }, [data]);
-
+  
   const fetchBrands = async () => {
     try {
       const url = `${baseUrl}/api/get/all/brands`;
@@ -111,10 +113,24 @@ export default function homepage1() {
       return toast.error(error.response?.data?.message);
     }
   }
+   
+  const getBlogsData = async () => {
+    const url_brands = `${baseUrl}/api/website/get/blogs/for/homepage`;
+    await axios
+      .get(url_brands, { withCredentials: true })
+      .then((res) => {
+        console.log("blogs",res?.data);
+        setBlogsDataApi(res?.data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const currentUser = useSelector((state) => state.userReducer.user);
 
   useState(() => {
+    getBlogsData();
     fetchBrands();
     fetchData();
     fetchDoctors();
@@ -123,7 +139,7 @@ export default function homepage1() {
     // }
   }, []);
   console.log(data);
-
+  const blogDataItem = blogsDataApi;
   return (
     <>
       <LayoutOne title="Dochomoeo" data={sliderData} className="-style-1">
@@ -165,6 +181,32 @@ export default function homepage1() {
         <TestimonialOne data={testimonialOneData} />
         {/* <TeamOne data={teamOneData} />  */}
         {/* <CTAOne /> */}
+        {/* BLOGS SECTION  */}
+      <SectionTitleOne align="center" spaceBottom="50px">
+        Our Blogs
+      </SectionTitleOne>
+      <div className="container">
+        <div className="row">
+          {blogDataItem?.map((value, index) => (
+            <div key={index} className="col-12 col-md-6">
+              <PostCardTwo data={value} />
+              
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{ marginTop: 70 }} className="view_brands_page">
+        
+      <div className="view_all_Main_blogs">
+        <Link href="/blog" >
+          <button className="view_all_blogs">
+          View All Blogs
+          </button>
+         
+        </Link>
+        </div>
+      </div>
+      {/* BLOGS SECTION */}
       </LayoutOne>
     </>
   );

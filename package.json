@@ -27,6 +27,7 @@
     "react-dom": "16.13.1",
     "react-hook-form": "^5.7.2",
     "react-hooks-paginator": "^0.5.1",
+    "react-html-parser": "^2.0.2",
     "react-image-lightbox": "^5.1.1",
     "react-lightgallery": "^0.6.3",
     "react-mailchimp-subscribe": "^2.1.0",
