@@ -52,12 +52,21 @@
 .author_section_main{
   // width: 548px;
 padding-left: 5.375em;
-
+@media only screen and (max-width: 475px) {
+  padding-left: 15px !important;
+  margin-bottom: 40px!important;
+  
+}
 }
 .author_profile{
   width: 70px;
   height: 70px;
   border-radius: 50%;
+  margin-bottom: 20px !important;
+  // @media only screen and (max-width: 475px) {
+  //   margin-bottom: 20px !important;
+    
+  // }
 }
 .author_section{
   width: 498px;
@@ -65,12 +74,19 @@ padding-left: 5.375em;
   gap: 10px;
   justify-content: flex-start;
   align-items: start;
+  flex-direction: column;
+  @media only screen and (max-width: 475px) {
+    width: 100%!important;
+   
+    
+  }
+  
 }
 .author_writen_date{font-size: 11px;color: gray;margin-top: -5px;}
 
 .author_bio{font-size: 13px;color: gray;line-height:25px ;}
 .author_name{font-size: 16px;font-weight: 600;padding-top: 4px;text-decoration: none;color: #222222;}
-.author_written{line-height: 25px;}
+.author_written{line-height: 35px;}
 
 .view_all_blogs{background: #005b3c;
   border: 1px solid #005b3c;
