@@ -51,21 +51,21 @@ export default function DoctorSection({ data }) {
           <h1>Our Doctors</h1>
         </div> */}
 
-          <div className="two">
+          {/* <div className="two">
             <h2>
-              Our Doctors
+             
               <span>Consult with our experienced doctors</span>
             </h2>
-          </div>
+          </div> */}
 
           <div className="doctorsection__wrapper">
             {data.map((item) => {
               const len = item?.languages?.split(",").length;
               const leg = item?.languages?.split(",").slice(0, 3);
               let t = 0;
-              leg?.map((item) =>{
-                t+=item.length;
-              } )
+              leg?.map((item) => {
+                t += item.length;
+              });
               return (
                 <main className="qr-container pb-3">
                   <div className="img-block">
@@ -85,7 +85,6 @@ export default function DoctorSection({ data }) {
                     <p className="text2">{item.Specialization}</p>
                   </div>
                   <article className="info-block pt-1">
-                   
                     <span className="docinfo">
                       {item.experience} + years of experience <br />
                       {/* {item?.languages?.slice(0, t + 2)} { (len - leg.length) === 0 ? "" : <>
@@ -95,12 +94,15 @@ export default function DoctorSection({ data }) {
                     <div className="docinfo">
                       {/* {item.experience} + years of experience <br /> */}
                       <span>
-                      {item?.languages?.slice(0, t + 2)} { (len - leg.length) === 0 ? "" : <>
-                       + {(len - leg.length)}
-                      </> }
+                        {item?.languages?.slice(0, t + 2)}{" "}
+                        {len - leg.length === 0 ? (
+                          ""
+                        ) : (
+                          <>+ {len - leg.length}</>
+                        )}
                       </span>
                     </div>
-                   
+
                     <br />
                     {/* <Link
                       href={`${process.env.PUBLIC_URL}/doctors/[slug]`}
