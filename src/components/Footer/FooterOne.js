@@ -64,7 +64,7 @@ export default function FooterOne() {
             <div className="col-12 col-md-6 col-lg-4">
               <div className="footer__section -links">
                 <div className="row">
-                  <div className="col-12 col-sm-6">
+                  {/* <div className="col-12 col-sm-6">
                     <h5 className="footer-title">Account</h5>
                     <ul>
                       {footerLinks.accountLinks.map((link, index) => (
@@ -75,7 +75,7 @@ export default function FooterOne() {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </div> */}
                   <div className="col-12 col-sm-6">
                     <h5 className="footer-title">Infomation</h5>
                     <ul>

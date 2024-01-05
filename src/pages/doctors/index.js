@@ -5,6 +5,7 @@ import LayoutOne from "../../components/Layout/LayoutOne";
 import classNames from "classnames";
 import Link from "next/link";
 import DoctorSection from "../../components/Doctor/DoctorSection";
+import { Breadcrumb, BreadcrumbItem } from "../../components/Other/Breadcrumb";
 
 export default function () {
   const [data, setData] = useState([]);
@@ -26,6 +27,11 @@ export default function () {
   return (
     <>
       <LayoutOne>
+      
+      <Breadcrumb title="Our Doctors">
+        <BreadcrumbItem name="Home" />
+        <BreadcrumbItem name="doctors" current />
+      </Breadcrumb>
         {/* <div class="two alt-two">
           <h2>
             Our Doctors

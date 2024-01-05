@@ -11,6 +11,7 @@ import Link from "next/link";
 import { FaCopy } from "react-icons/fa6";
 import { Button } from "reactstrap";
 import { FaArrowTurnDown } from "react-icons/fa6";
+import { Breadcrumb, BreadcrumbItem } from "../../components/Other/Breadcrumb";
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
@@ -187,6 +188,11 @@ export default function () {
 
   return (
     <LayoutFour title="Order History">
+       
+       <Breadcrumb title="My Orders">
+        <BreadcrumbItem name="Home" />
+        <BreadcrumbItem name="orders" current />
+      </Breadcrumb>
       {loading ? (
         <>
           <Loading />
@@ -227,7 +233,7 @@ export default function () {
             </>
           ) : (
             <Container>
-              <Title>My Orders</Title>
+             
               {data?.map((item) => {
                 console.log("izz", item);
                 return (
@@ -363,9 +369,9 @@ export default function () {
                         {" "}
                        
                       </span>{" "}
-                      <button href="https://www.shiprocket.in/shipment-tracking/" className="button_link">
+                      <a href="https://www.shiprocket.in/shipment-tracking/" target="_blank" className="button_link">
                      Track Order
-                      </button>
+                      </a>
                     
                     
                     </AddressInfo>
