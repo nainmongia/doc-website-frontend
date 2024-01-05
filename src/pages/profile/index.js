@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import LayoutFour from "../../components/Layout/LayoutOne";
 import axios from "axios";
@@ -7,13 +7,16 @@ import Loading from "../../components/Other/Loading";
 import { formatDate } from "../../common/utils";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-
+import Link from "next/link";
+import { FaCopy } from "react-icons/fa6";
+import { Button } from "reactstrap";
+import { FaArrowTurnDown } from "react-icons/fa6";
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  gap:"20px";
+  gap: "20px";
 `;
 
 const Title = styled.h2`
@@ -25,7 +28,8 @@ const Card = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 3px 15px 0px rgba(17, 30.999999999999996, 98.00000000000001, 0.1);
+  box-shadow: 0px 3px 15px 0px
+    rgba(17, 30.999999999999996, 98.00000000000001, 0.1);
   border-radius: 10px;
   padding: 20px 2em 20px 2em;
   margin-bottom: 40px;
@@ -135,13 +139,17 @@ export default function () {
   async function fetchOrders() {
     setLoading(true);
     try {
-      const res = await axios.post(`${baseUrl}/api/get/all/orders/user`,{
-        user: currentUser?.user._id
-      }, {
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        `${baseUrl}/api/get/all/orders/user`,
+        {
+          user: currentUser?.user._id,
+        },
+        {
+          withCredentials: true,
+        }
+      );
       console.log(res);
-      if(res?.data?.success === false){
+      if (res?.data?.success === false) {
         setData([]);
         setLoading(false);
         return toast.error(res?.data?.message);
@@ -155,6 +163,21 @@ export default function () {
       console.log(error);
     }
   }
+
+  const referIdRef = useRef(null);
+
+  const copyReferIdToClipboard = () => {
+    if (referIdRef.current) {
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = referIdRef.current.innerText;
+      document.body.appendChild(tempTextArea);
+
+      tempTextArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempTextArea);
+      toast.success("Copied!");
+    }
+  };
 
   useEffect(() => {
     fetchOrders();
@@ -206,8 +229,9 @@ export default function () {
             <Container>
               <Title>My Orders</Title>
               {data?.map((item) => {
+                console.log("izz", item);
                 return (
-                  <Card>
+                  <Card className="order_card">
                     <OrderInfo>
                       <OrderDate>
                         Ordered on: {formatDate(item?.createdAt)}
@@ -216,48 +240,55 @@ export default function () {
                     </OrderInfo>
                     <ProductTable>
                       <ProductTableHead>
-                        <ProductTableRow>
+                        <ProductTableRow
+                          style={{ marginTop: "14px", marginBottom: "14px" }}
+                        >
                           <ProductTableHeader>Product</ProductTableHeader>
                           <ProductTableHeader>Description</ProductTableHeader>
                           <ProductTableHeader>Price</ProductTableHeader>
                         </ProductTableRow>
                       </ProductTableHead>
-                      <tbody>
+                      <tbody className="tablebody">
                         {item?.products?.map((i) => {
                           return (
-                            <ProductTableRow>
+                            // <div style={{marginTop: "14px",width:"100%"}}>
+                            <ProductTableRow  style={{lineHeight:'100px'}}>
                               <ProductTableData>
                                 <ProductImage>
                                   <img
+                                    className="productimg"
                                     src={i?.images[0]?.image_url}
                                     alt="Product"
                                   />
                                 </ProductImage>
                               </ProductTableData>
-                              <ProductTableData>
+                              <ProductTableData className="productname">
                                 {i?.name} X {i?.cartQuantity}
                               </ProductTableData>
                               <ProductTableData>
                                 ₹ {i?.price * i?.cartQuantity}
                               </ProductTableData>
                             </ProductTableRow>
+                            // </div>
                           );
                         })}
                         {/* Add more product rows as needed */}
-                        <ProductTableRow>
-                          <ProductTableData></ProductTableData>
-                          <ProductTableData>
-                            <TotalLabel>Total</TotalLabel>
+                       
+                        <ProductTableRow  >
+                          <ProductTableData  style={{padding:"17px 0px 16px 0px",fontSize:'12'}}>
+                            <TotalLabel className="textlabel" >Total</TotalLabel>
                           </ProductTableData>
-                          <ProductTableData>
-                            <TotalAmount> {item?.total_amount}</TotalAmount>
+                          <ProductTableData></ProductTableData>
+                          <ProductTableData style={{padding:"17px 0px 16px 0px",fontSize:'12'}}>
+                            <TotalAmount  className="textlabel">₹  {item?.total_amount}</TotalAmount>
                           </ProductTableData>
                         </ProductTableRow>
+                      
                       </tbody>
                     </ProductTable>
-                    <AddressInfo>
+                    <AddressInfo style={{marginTop:"25px"}} className="addressinfo addressMobile">
                       {" "}
-                      <span
+                      <span className="ordertags"
                         style={{
                           fontWeight: "bold",
                         }}
@@ -265,9 +296,64 @@ export default function () {
                         {" "}
                         Address :
                       </span>{" "}
+                      <span  className="ordertags">
                       {item?.shipping_address}
+                      </span>
                     </AddressInfo>
-                    <AddressInfo>
+                    <AddressInfo  className="addressinfo">
+                      {" "}
+                      <span
+                      className="ordertags" 
+                        id="myInput"
+                        style={{
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {" "}
+                        Payment Mode :
+                      </span>{" "}
+                      <span  className="ordertags">
+                      {item?.tid}
+                      </span>
+                    </AddressInfo>
+                    <AddressInfo  className="addressinfo">
+                      {" "}
+                      <span
+                      className="ordertags"
+                        style={{
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {" "}
+                        OrderID :
+                      </span>{" "}
+                      <span ref={referIdRef}  className="ordertags"> {item?.order_id}</span>
+                      <span
+                        onClick={copyReferIdToClipboard}
+                        style={{ marginLeft: "10px",cursor:'pointer',fontSize:'18px' }}
+                      >
+                        {" "}
+                        <FaCopy />
+                      </span>
+                    </AddressInfo>
+                    <AddressInfo  className="addressinfo">
+                      {" "}
+                      <span
+                        id="myInput"
+                        className="ordertags"
+                        style={{
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {" "}
+                        Note :
+                      </span>{" "}
+
+                      <span   className="ordertags">
+                      Track You Order By Copy <span className="orderid_bold">Order ID</span> And Click On Button.
+                      </span>
+                    </AddressInfo>
+                    <AddressInfo  className="addressinfo">
                       {" "}
                       <span
                         style={{
@@ -275,9 +361,13 @@ export default function () {
                         }}
                       >
                         {" "}
-                        TransactionID :
+                       
                       </span>{" "}
-                      {item?.tid}
+                      <button href="https://www.shiprocket.in/shipment-tracking/" className="button_link">
+                     Track Order
+                      </button>
+                    
+                    
                     </AddressInfo>
                   </Card>
                 );

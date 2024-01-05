@@ -160,7 +160,10 @@
         .payment-methods {
           img {
             max-width: 100%;
-          }
+            @media only screen and (max-width:576px){
+            width: 80% !important;
+            }
+          }    
         }
       }
     }
@@ -246,3 +249,5 @@
     }
   }
 }
+
+

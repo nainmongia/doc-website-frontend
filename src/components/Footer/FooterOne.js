@@ -10,11 +10,14 @@ export default function FooterOne() {
     <div className="footer-one">
       <div className="container">
         <div className="footer-one__header">
+          
           <div className="footer-one__header__logo">
             {/* <Link href={process.env.PUBLIC_URL + "/homepages/homepage1"}> */}
+            
             <a>
               <img src={process.env.PUBLIC_URL + "/doc.png"} alt="Logo" />
             </a>
+
             {/* </Link> */}
           </div>
           {/* <div className="footer-one__header__newsletter">
@@ -102,14 +105,21 @@ export default function FooterOne() {
                   Experience Hassle-Free Payments with Our Secure and Convenient
                   Methods.
                 </p>
-                <div className="payment-methods">
-                  {/* <img
+                <div className="payment-methods d-flex space-between">
+                <img height="56.38px" className="payemnt1 mr-2"
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/images/footer/phonepe.png"
+                    }
+                    alt="Payment methods"
+                  />
+                  <img height="100%"  className="payemnt2"
                     src={
                       process.env.PUBLIC_URL +
                       "/assets/images/footer/payment.png"
                     }
                     alt="Payment methods"
-                  /> */}
+                  />
                 </div>
               </div>
             </div>
