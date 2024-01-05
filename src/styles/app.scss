@@ -1,0 +1,85 @@
+.order_card {
+  width: 100% !important;
+}
+
+.productname {
+  line-height: 2;
+}
+
+.tablebody {
+  margin-top: 14px !important;
+  width: 100% !important;
+  // display: flex!important;
+  // flex-direction: column!important;
+}
+
+.productname {
+  text-transform: capitalize;
+  @media only screen and (max-width: 574px) {
+    text-align: start !important;
+  }
+}
+.orderid_bold {
+  font-weight: 600;
+}
+
+.button_link {
+  background-color: #222;
+  padding: 15px 25px 12px;
+  border-radius: 3px;
+  border: none;
+  color: white;
+}
+
+.ordertags {
+  @media only screen and (max-width: 574px) {
+    font-size: 12px !important;
+    margin-top: 0px !important;
+    line-height: 1px !important;
+  }
+}
+
+.addressinfo {
+  @media only screen and (max-width: 574px) {
+    margin-top: 8px !important;
+    line-height: 1.6 !important;
+  }
+}
+
+.addressMobile {
+  @media only screen and (max-width: 574px) {
+    margin-top: 14px !important;
+  }
+}
+
+.textlabel {
+  font-size: 12px !important;
+  @media only screen and (min-width: 574px) {
+    margin-top: 16px !important;
+  }
+}
+
+.textlabel {
+    font-size: 16px !important;
+    margin-top: 16px !important;
+  }
+@media only screen and (max-width: 574px) {
+  .ordertags {
+    font-size: 12px !important;
+    margin-top: 0px !important;
+    line-height: 1px !important;
+  }
+  .addressinfo {
+    margin-top: 8px !important;
+    line-height: 1.6 !important;
+  }
+
+  .addressMobile {
+    margin-top: 14px !important;
+  }
+  .textlabel {
+    font-size: 12px !important;
+    margin-top: 16px !important;
+  }
+  
+}

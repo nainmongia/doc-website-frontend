@@ -7,7 +7,7 @@ import ScrollToTop from "react-scroll-to-top";
 import "../styles/styles.scss";
 import Loading from "../components/Other/Loading";
 import withReduxStore from "../common/with-redux-store";
-
+import "../styles/app.scss";
 const App = ({ Component, pageProps, reduxStore }) => {
   return (
     <Provider store={reduxStore}>
