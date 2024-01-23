@@ -257,7 +257,8 @@
   &__content {
     .tab__content__header {
       border-bottom: 0;
-      margin-bottom: emCal(16, 45);
+      // margin-bottom: emCal(16, 45);
+      margin-bottom: 10px;
       .react-tabs__tab {
         padding: 0;
         border: 0;

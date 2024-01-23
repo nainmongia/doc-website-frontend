@@ -132,14 +132,14 @@ export default function ProductDetailInfo({ data, onReviewSubmit, hideTab,origin
         
    
       </div>
-      {!hideTab && (
+      {/* {!hideTab && (
         <>
+            <ProductDetailInfoTab original={original} data={data} onReviewSubmit={onReviewSubmit} />
           <div className="divider"></div>
           <div className="product-detail__content__tab">
-            <ProductDetailInfoTab original={original} data={data} onReviewSubmit={onReviewSubmit} />
           </div>
         </>
-      )}
+      )} */}
     </div>
   );
 }

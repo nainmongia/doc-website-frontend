@@ -3,6 +3,7 @@ import React from "react";
 import ProductDetailInfo from "./Elements/ProductDetailInfo";
 import ProductDetailSlideTwo from "./Elements/ProductDetailSlideTwo";
 import ProductDetailSlideOne from "./Elements/ProductDetailSlideOne";
+import ProductDetailInfoTab from "./Elements/ProductDetailInfoTab";
 
 export default function ProductDetail({ data, onReviewSubmit,original }) {
   return (
@@ -17,6 +18,7 @@ export default function ProductDetail({ data, onReviewSubmit,original }) {
               <ProductDetailInfo original={original} data={data} onReviewSubmit={onReviewSubmit} />
             </div>
           </div>
+            <ProductDetailInfoTab original={original} data={data} onReviewSubmit={onReviewSubmit} />
         </div>
       </div>
     </div>
