@@ -64,6 +64,92 @@
     font-size: 16px !important;
     margin-top: 16px !important;
   }
+.ratingheader{
+  margin-bottom: 10px!important;
+}
+.ratingarrange{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.ratingnum{
+  
+  display: flex;
+  align-items: center;
+}
+.ratingcard {
+  border: solid 1px #d8e2e7;
+  width: 100%;
+  padding: 20px;
+  margin: 15px 0px;
+  @media only screen and (max-width:375px){
+    width: 100%;
+  }
+
+}
+.left_right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.username {
+  margin: 1px 1px 8px 0px;
+  text-transform: capitalize;
+}
+.rightside {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-content: center;
+}
+
+.nameanddate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 8px 0px 0px 15px;
+}
+
+.userdate {
+  color: #7d7d7d;
+  font-size: 80%;
+}
+
+.dateandstart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:6px;
+}
+
+.centerline {
+  margin-top: 10px;
+  border: solid 1px #363b3d0a;
+  width: 100%;
+  text-align: center;
+}
+
+.detailsreview {
+  color: #7d7d7d;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-top: 10px;
+}
+
+.leftright_start {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.allcard_rating {
+  display: flex;
+  flex-direction: row;
+}
+.allcardflex{
+
+}
 @media only screen and (max-width: 574px) {
   .ordertags {
     font-size: 12px !important;

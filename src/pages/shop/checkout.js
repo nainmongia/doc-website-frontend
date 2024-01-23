@@ -79,6 +79,7 @@ export default function () {
             state: data.state,
             pincode: data.zip,
             town: data.town,
+            totalqty:data
           },
           {
             withCredentials: true,
