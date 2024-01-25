@@ -14,7 +14,7 @@ import StarIcon from "@mui/icons-material/Star";
 
 export default function ProductDetailInfoTab({ original, data }) {
   console.log("orignal", original);
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(0);
   const [hover, setHover] = React.useState(-1);
   const { register, handleSubmit, errors, reset } = useForm();
   const [showFullDescription, setShowFullDescription] = useState(false);
