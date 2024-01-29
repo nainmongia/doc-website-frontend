@@ -18,6 +18,7 @@ import { baseUrl } from "../../config";
 import axios from "axios";
 import ShopProducts from "../components/Shop/ShopProducts";
 import BrandsTwo from "../components/Sections/Brands/BrandsTwo";
+import BrandsWise from "../components/Sections/Brands/BrandsWise";
 import ProductCategories from "../components/Sections/ProductCategories/ProductCategories";
 import CategoriesTwo from "../components/Sections/Categories/CategoriesTwo";
 import MenuFive from "../components/Header/Menu/MenuFive";
@@ -151,7 +152,7 @@ export default function homepage1() {
         {/* <IntroductionOne data={introductionOneData} /> */}
         {/* <IntroductionTwo data={introductionTwoData} /> */}
         {/* <ProductSlideOne data={productSlideOneData} /> */}
-        <BrandsTwo
+        <BrandsWise
           mainHeading={"Our Brands"}
           description={"The Brands you can count upon"}
           data={brandsData}

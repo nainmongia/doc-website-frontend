@@ -43,6 +43,7 @@
         @include link($fsz: emCal(16, 15), $lh: emCal(15, 24), $fw: 500);
         display: block;
         margin-bottom: emCal(15, 10);
+        text-transform: capitalize;
       }
       h5 {
         @include typo($fsz: emCal(16, 15), $fw: 600);

@@ -170,8 +170,7 @@ function Product({ data, type, className }) {
             <div className="product__content">
               <div className="product__content__header">
                 <h5 className="product-category">
-                  {data?.product_name?.slice(0, 20)}
-                  {data?.product_name?.length < 20 ? "" : "..."}
+                  {data?.product_main_category}
                 </h5>
                 {/* <Rate currentRate={process.env.PUBLIC_URL + "/assets/images/med.webp"} /> */}
               </div>

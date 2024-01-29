@@ -170,7 +170,7 @@ export default function ProductDetailInfoTab({ original, data }) {
                         value={value}
                         precision={1}
                         size="large"
-                        getLabelText={getLabelText}
+                        // getLabelText={getLabelText}
                         onChange={(event, newValue) => {
                           setValue(newValue);
                         }}
@@ -184,14 +184,14 @@ export default function ProductDetailInfoTab({ original, data }) {
                           />
                         }
                       />
-                      <div className="ratingnum">
+                      {/* <div className="ratingnum">
                         {" "}
                         {value !== null && (
                           <Box sx={{ ml: 2 }}>
                             {labels[hover !== -1 ? hover : value]}/5
                           </Box>
                         )}
-                      </div>
+                      </div> */}
                     </div>
                     <h5>Edit your review</h5>
                     <div className="col-12">
@@ -246,14 +246,14 @@ export default function ProductDetailInfoTab({ original, data }) {
                         />
                       }
                     />
-                    <div className="ratingnum">
+                    {/* <div className="ratingnum">
                       {" "}
                       {value !== null && (
                         <Box sx={{ ml: 2 }}>
                           {labels[hover !== -1 ? hover : value]}/5
                         </Box>
                       )}
-                    </div>
+                    </div> */}
                   </div>
                   <h5 className="ratingheader">Write a review</h5>
                   <div className="">

@@ -31,9 +31,9 @@ function MenuFive({ data }) {
                                   {i.subcategory.map((j) => {
                                     return (
                                       <Link
-                                        href={`${process.env.PUBLIC_URL}/shop/search/[slug]`}
+                                        href={`${process.env.PUBLIC_URL}/shop/by-subcategory/[slug]`}
                                         // href={`#`}
-                                        as={`${process.env.PUBLIC_URL}/shop/search/${j.name}`}
+                                        as={`${process.env.PUBLIC_URL}/shop/by-subcategory/${j.name}`}
                                         // as={`#`}
                                       >
                                         <li style={{

@@ -199,7 +199,7 @@ export default function () {
                       disabled={otp.length < 4}
                       onClick={handleOtpVerification}
                     >
-                      verify otp
+                      Verify Otp
                     </button>
                   </div>
                 </div>

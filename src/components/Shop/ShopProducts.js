@@ -60,12 +60,12 @@ export default function ShopProducts(props) {
                 <div className="two">
                   <h2>{brand.main_category_name}</h2>
                   <Link
-                    href={`/shop/search/[slug]`}
+                    href={`/shop/category/[slug]`}
                     // href={`#`}
-                    as={`/shop/search/${brand.main_category_name}`}
+                    as={`/shop/category/${brand.main_category_name}`}
                     // as={`#`}
                   >
-                    <div className="button-37">View All</div>
+                    <p className="button-37">View All</p>
                   </Link>
                 </div>
                 <div className="ProductsTwo__wrapper">

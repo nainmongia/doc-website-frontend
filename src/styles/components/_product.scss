@@ -129,6 +129,7 @@
   &-name {
     @include link($fsz: 1em, $lh: emCal(16, 26), $fw: 500);
     display: block;
+    text-transform: capitalize;
     margin-bottom: emCal(16, 10);
     @include overflowText(1);
   }

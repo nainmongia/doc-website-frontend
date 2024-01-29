@@ -91,9 +91,9 @@ export default function BrandsTwo({ data, mainHeading, description }) {
             {data.map((brand) => {
               return (
                 <Link
-                  href={`${process.env.PUBLIC_URL}/shop/category/[slug]`}
+                  href={`${process.env.PUBLIC_URL}/shop/brands-wise/[slug]`}
                   // href={`#`}
-                  as={`${process.env.PUBLIC_URL}/shop/category/${brand.main_category_name}`}
+                  as={`${process.env.PUBLIC_URL}/shop/brands-wise/${brand.main_category_name}`}
                   // as={`#`}
                 >
                   <img

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 import axios from "axios";
 import { baseUrl } from "../../../config";
 import LayoutFour from "../../components/Layout/LayoutFour";
@@ -49,6 +50,8 @@ export default function () {
     errors: couponErrors,
   } = useForm();
 
+  const router = useRouter();
+
   async function getcharges() {
     const res = await axios.get(`${baseUrl}/api/delivery/get`);
     setCharges(res.data?.discount);
@@ -75,6 +78,9 @@ export default function () {
               totalPrice < charges?.cap
                 ? totalPrice + charges?.amount
                 : totalPrice,
+            delivery_charges:totalPrice < charges?.cap
+            ? charges?.amount
+            : 0,
             shipping_address: data.streetAddress + data.apartment,
             state: data.state,
             pincode: data.zip,
@@ -87,6 +93,9 @@ export default function () {
         );
         setLoading(false);
         dispatch(removeAllFromCart());
+        router.push({
+          pathname: process.env.PUBLIC_URL + "/profile",
+        });
         return toast.success("Your order has been placed");
       } catch (error) {
         setLoading(false);
@@ -109,6 +118,9 @@ export default function () {
             totalPrice < charges?.cap
               ? totalPrice + charges?.amount
               : totalPrice,
+          delivery_charges:totalPrice < charges?.cap
+              ? charges?.amount
+              : 0,
           shipping_address: data.streetAddress + data.apartment,
           state: data.state,
           pincode: data.zip,
@@ -329,12 +341,12 @@ export default function () {
                                 ref={register({ required: true })}
                                 placeholder="Steet address"
                               />
-                              <input
+                              {/* <input
                                 type="text"
                                 name="apartment"
                                 ref={register({ required: true })}
                                 placeholder="Apartment, suite, unite ect ( optinal )"
-                              />
+                              /> */}
                             </label>
                             {errors.streetAddress || errors.apartment ? (
                               <span className="input-error">
@@ -469,7 +481,7 @@ export default function () {
                         }}
                         className="btn -dark"
                       >
-                        Coupons available
+                         Available Coupons
                       </button>
                       <div
                         style={{
@@ -750,6 +762,14 @@ function AllCoupons({ show, setShow }) {
   }, []);
 
   // console.log(data);
+  // const newData = [
+  //   {id:1,title:'DOCHOMM',description:'Semi-transparent background Semi-transparent backgroundSemi-transparent background '},
+  //   {id:2,title:'DOCHOMM',description:'Semi-transparent background Semi-transparent backgroundSemi-transparent background '},
+  //   {id:3,title:'DOCHOMM',description:'Semi-transparent background Semi-transparent backgroundSemi-transparent background '},
+  //   {id:4,title:'DOCHOMM',description:'Semi-transparent background Semi-transparent backgroundSemi-transparent background '},
+  //   {id:5,title:'DOCHOMM',description:'Semi-transparent background Semi-transparent backgroundSemi-transparent background '},
+  //   {id:6,title:'DOCHOMM',description:'Semi-transparent background Semi-transparent backgroundSemi-transparent background '},
+  // ]
 
   if (show) {
     return (
@@ -765,30 +785,17 @@ function AllCoupons({ show, setShow }) {
         }}
         onClick={handleBackdropClick} // Call setShow(false) on click outside the component
       >
-        <Modal>
+        <Modal className='coupons_modal_bbox'  >
           {data.map((item) => (
-            <div
-              key={item.id} // Add a unique key for each item
-              style={{
-                marginBottom: "10px",
-                boxShadow: "-2px 3px 22px 8px rgba(201, 201, 201, 1)",
-                width: "100%",
-                padding: 10,
-                cursor: "pointer",
-              }}
-              onClick={() => copyToClipboard(item.title)}
-            >
-              <div
-                style={{
-                  color: "black",
-                  fontWeight: "bold",
-                  marginBottom: "10px",
-                }}
-              >
-                {item?.title}
-              </div>
-              <div style={{}}>{item?.description.toLowerCase()}</div>
+            <>
+            <div key={item.id} className="check_out_coupons_main" onClick={() => copyToClipboard(item.title)}>
+            <div className="coupon_top_box" >
+            <p className="coupon_titile" >{item?.title}</p>
+             <button className="btn -dark coupon_copy_btn ">Copy</button>
             </div>
+            <p className="coupon_desc" >{item?.description}</p>
+            </div>
+            </>
           ))}
         </Modal>
       </div>
