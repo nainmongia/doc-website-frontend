@@ -61,6 +61,24 @@ export default function MenuFunctionIcons(props) {
                 />
               </a>
             </Link> */}
+            <div className="menu__cart menu_search"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowSearch(!showSearch);
+                console.log("search")
+              }}
+            >
+              <img
+                src={
+                  props.white
+                    ? process.env.PUBLIC_URL +
+                      "/assets/images/header/search-icon-white.png"
+                    : process.env.PUBLIC_URL +
+                      "/assets/images/header/search-icon.png"
+                }
+                alt="Search icon"
+              />
+            </div>
             <div className="menu__cart">
               <a
                 href="#"
@@ -86,7 +104,7 @@ export default function MenuFunctionIcons(props) {
                 Cart: <span>{formatCurrency(calcalateTotal(cartState))}</span>
               </h5>
             </div>
-            <div className="menu__cart">
+            {/* <div className="menu__cart"> */}
             {/* <Link
               href={`${process.env.PUBLIC_URL}/profile`}
               // href={`#`}
@@ -107,7 +125,7 @@ export default function MenuFunctionIcons(props) {
                   }
                 />
               </Link> */}
-            </div>
+            {/* </div> */}
             <a
               href="#"
               className="menu-icon -navbar"
@@ -132,6 +150,9 @@ export default function MenuFunctionIcons(props) {
         showMobileNav={showMobileNav}
         setShowMobileNav={setShowMobileNav}
       />
+      {/* <div className="search-box">
+        <SearchBox showSearch={true} setShowSearch={setShowSearch} />
+      </div> */}
     </>
   );
 }

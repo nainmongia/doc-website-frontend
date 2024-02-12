@@ -182,6 +182,13 @@
           }
         }
       }
+      .menu_search{
+        display: none !important;
+        margin-left: 10px;
+        @include mq(lg){
+          display: flex !important;
+        }
+      }
       .menu-icon {
         margin-right: emCal(16, 30);
         img {
@@ -260,6 +267,7 @@
       position: absolute;
       right: 0;
       width: 500px;
+      max-width: 90%;
       form {
         position: relative;
         z-index: 1;
@@ -404,6 +412,9 @@
           @include imgCenter($height: emCal(16, 15), $width: emCal(16, 15));
         }
       }
+    }
+    @include mq(md){
+      margin-bottom: 10px;
     }
   }
   .navigator-mobile {

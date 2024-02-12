@@ -117,7 +117,7 @@ export default function () {
               margin: 10,
               fontWeight: "bold",
               color: "black",
-              fontSize: 24,
+              fontSize: 20,
             }}
           >
             Showing total products : {count}

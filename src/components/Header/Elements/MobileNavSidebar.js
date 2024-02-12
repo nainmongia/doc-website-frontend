@@ -62,9 +62,9 @@ export default function MobileNavSidebar({ showMobileNav, setShowMobileNav }) {
           classNames="cart-sidebar"
         >
           <div className="navigation-sidebar">
-            <div className="search-box">
+            {/* <div className="search-box">
               <SearchBox showSearch={true} setShowSearch={setShowSearch} />
-              {/* <form>
+              <form>
                 <input
                   type="text"
                   placeholder="What are you looking for?"
@@ -82,8 +82,8 @@ export default function MobileNavSidebar({ showMobileNav, setShowMobileNav }) {
                     alt="Search icon"
                   />
                 </button>
-              </form> */}
-            </div>
+              </form>
+            </div> */}
             <NavigatorMobile data={brandsData} />
             <div className="navigation-sidebar__footer">
               {/* <Select
