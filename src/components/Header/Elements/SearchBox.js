@@ -55,7 +55,7 @@ export default function SearchBox({ showSearch, setShowSearch }) {
     <CSSTransition
       in={showSearch}
       unmountOnExit
-      timeout={200}
+      timeout={100}
       classNames="search-box"
     >
       <div ref={wrapperRef} className="search-box">
@@ -67,6 +67,7 @@ export default function SearchBox({ showSearch, setShowSearch }) {
             value={text}
             // ref={register}
             onChange={handleChange}
+            autocomplete="off"
           />
           <button>
             <img
@@ -75,7 +76,7 @@ export default function SearchBox({ showSearch, setShowSearch }) {
             />
           </button>
         </form>
-        {searchProduct.length>0&&<div className="search-product">
+        {searchProduct.length>0 && <div className="search-product">
           <div className="heading">Products</div>
           <ul className="border">
             {
