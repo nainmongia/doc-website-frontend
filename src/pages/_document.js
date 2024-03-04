@@ -10,10 +10,11 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <meta
+      <meta name="title" content="Dochomoeo: Online Medical Services in India" />
+          <meta
             name="Description"
             content="We are dedicated to revolutionizing healthcare by bridging the gap between patients and homoeopathic medicine. Our mission is to provide convenient access to high-quality homoeopathic medicines, expert medical consultations, and unparalleled service to people worldwide."
-          /> */}
+          />
           {/* <link rel="icon" href="/fav.png" /> */}
           {/* <link rel="icon" href="/" /> */}
           <link
